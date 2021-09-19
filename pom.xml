@@ -2,23 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.serenitybdd.starter</groupId>
-    <artifactId>serenity-rest-starter</artifactId>
+    <groupId>com.vmaksymenko</groupId>
+    <artifactId>serenity-rest-example</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Sample Serenity BDD project using Cucumber</name>
+    <name>Sample Serenity Cucumber REST Project</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.4.51</serenity.version>
-        <serenity.maven.version>2.4.51</serenity.maven.version>
-        <serenity.cucumber.version>2.4.51</serenity.cucumber.version>
+        <serenity.version>2.6.0</serenity.version>
         <logback.version>1.2.3</logback.version>
         <encoding>UTF-8</encoding>
-        <tags></tags>
         <parallel.tests>4</parallel.tests>
-        <webdriver.base.url></webdriver.base.url>
     </properties>
 
     <dependencies>
@@ -62,7 +58,7 @@
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber6</artifactId>
-            <version>${serenity.cucumber.version}</version>
+            <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -134,9 +130,6 @@
                         <include>**/*TestSuite.java</include>
                         <include>**/When*.java</include>
                     </includes>
-                    <systemPropertyVariables>
-                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-                    </systemPropertyVariables>
                     <parallel>classes</parallel>
                     <threadCount>${parallel.tests}</threadCount>
                     <forkCount>${parallel.tests}</forkCount>
@@ -162,10 +155,7 @@
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.version}</version>
-                <configuration>
-                  <tags>${tags}</tags>
-                </configuration>
+                <version>${serenity.version}</version>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
@@ -178,5 +168,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
